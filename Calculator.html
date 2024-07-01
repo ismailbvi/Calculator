@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="icon" type="image/x-icon" href="11985283.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--MAIN CSS-->
+<link rel="stylesheet" href="CSS/CSS.css">
+
+</head>
+<body>
+<div class="calculator">
+    <h2>Calculator</h2>
+    <!--INPUT FIELD-->
+    <input type="text" id="display" readonly placeholder="0">
+    
+
+    <div class="buttons">
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('*')">x</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('/')">/</button>
+        <button onclick="calculateResult()">=</button>
+        <button onclick="deleteLastCharacter()"><i class="fa-solid fa-delete-left"></i></button>
+    </div>
+    <!--DISPLAY OF THE INPUT-->
+    <h3>Calculation History</h3>
+    <button onclick="clearHistory()" id ="c">Clear History</button>
+    <ul id="history-list"></ul>
+
+    <!--DISPLAY OF THE NUMBERS FROM INPUT-->
+    <p>Total Amount Spent: <span id="total-spent">0.00</span></p>
+    <p class="error-message" id="error-message"></p>
+</div>
+<!--MAIN JS-->
+ <script src="JS/JS.js"></script>
+</body>
+</html>
