@@ -163,35 +163,27 @@ function saveHistoryItem(button) {
 
 function deleteHistoryItem(button) {
     const listItem = button.parentElement;
-    const result = parseFloat(listItem.querySelector('.history-result').textContent);
+    const result = parseFloat(listItem.querySelector('.history-result').dataset.result);
 
-    historyList.removeChild(listItem);
-
+    // Update the total amount spent
     totalSpent -= result;
     totalSpentElement.textContent = totalSpent.toFixed(2);
+
+    // Remove the item from the DOM
+    listItem.remove();
 
     // Save the updated history to localStorage
     updateLocalStorage();
 }
 
 function clearHistory() {
+    // Clear the history list
     historyList.innerHTML = '';
-    totalSpent = 0;
-    totalSpentElement.textContent = '0.00';
 
-    // Clear localStorage
+    // Reset the total amount spent
+    totalSpent = 0;
+    totalSpentElement.textContent = totalSpent.toFixed(2);
+
+    // Clear the history in localStorage
     localStorage.removeItem('calculationHistory');
 }
-
-document.addEventListener('keydown', (event) => {
-    const key = event.key;
-    if (!isNaN(key) || ['+', '-', '*', '/', '.'].includes(key)) {
-        appendToDisplay(key);
-    } else if (key == 'Enter') {
-        calculateResult();
-    } else if (key == 'Backspace') {
-        deleteLastCharacter();
-    } else if (key == 'Escape') {
-        clearDisplay();
-    }
-});
